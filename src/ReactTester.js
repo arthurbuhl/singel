@@ -79,7 +79,11 @@ class Tester extends EventEmitter {
     const tags = findHTMLTags(wrapper);
     const tagsString = tags.map(t => t.type()).join(" > ");
     if (tags.length > 1) {
-      this.emit("error", `Render only one element: ${tagsString}`);
+      this.emit("error", `
+        Please render only one element. 
+        Curently we have more than one element being rendered:        
+        ${tagsString}
+      `);
     }
   };
 
